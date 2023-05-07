@@ -11,12 +11,12 @@ The "pands-project" repository contains the Fisher's Iris research and data stud
 1. [Description](#Description)
 2. [Dataset Information](#Dataset-Information)
 3. [Dataset Code and Analysis](#Dataset-Code-and-Analysis)
-* [Loading the dataset](#Loading-the-dataset)
-* [Analysis of the Iris Dataset](#Analysis-of-the-Iris-Dataset)
+- [Loading the dataset](#Loading-the-dataset)
+- [Analysis of the Iris Dataset](#Analysis-of-the-Iris-Dataset)
 4. [Plots](#Plots)
-* [Histograms](#Histograms)
-* [Scatterplots](#Scatterplots)
-* [Pairplot](#Pairplot)
+- [Histograms](#Histograms)
+- [Scatterplots](#Scatterplots)
+- [Pairplot](#Pairplot)
 5. [Conclusion](#Conclusion)
 6. [References](#References)
 
@@ -25,7 +25,7 @@ The "pands-project" repository contains the Fisher's Iris research and data stud
 The Iris flower data set or Fisher’s Iris data set is one of the most famous multivariate data set used for testing various Machine Learning Algorithms. It was introduced by the British statistician and biologist Ronald Fisher in his 1936 paper "The Use of Multiple Measurements in Taxonomic Problems" as an example of linear discriminant analysis.
 The dataset contains four features (length and width of sepals and petals) of 50 samples of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). These measures were used to create a linear discriminant model to classify the species. [01]
 
-![Iris Species][02](https://github.com/StefaniaVerduga/pands-project/blob/main/Pictures/iris.png)
+![Iris Species](https://github.com/StefaniaVerduga/pands-project/blob/main/Pictures/iris.png) [02]
 
 
 ## Dataset Information
@@ -55,10 +55,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 ```
-* Numpy: used to perform a wide variety of mathematical operations on arrays. NumPy is the fundamental package for scientific computing in Python. It is a Python library that provides a multidimensional array object, various derived objects (such as masked arrays and matrices), and an assortment of routines for fast operations on arrays, including mathematical, logical, shape manipulation. [04]
-* Pandas: used to perform data manipulation and analysis.Pandas is a Python library for data analysis. It is built on top of two core Python libraries—matplotlib for data visualization and NumPy for mathematical operations. Pandas acts as a wrapper over these libraries, allowing you to access many of matplotlib's and NumPy's methods with less code. [05]
-* Matplotlib: used for data visualization and graphical ploting. Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python. [06]
-* Seaborn: built on top of matplotlib with similar functionalities. Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. [07]
+* **Numpy**: used to perform a wide variety of mathematical operations on arrays. NumPy is the fundamental package for scientific computing in Python. It is a Python library that provides a multidimensional array object, various derived objects (such as masked arrays and matrices), and an assortment of routines for fast operations on arrays, including mathematical, logical, shape manipulation. [04]
+* **Pandas**: used to perform data manipulation and analysis.Pandas is a Python library for data analysis. It is built on top of two core Python libraries—matplotlib for data visualization and NumPy for mathematical operations. Pandas acts as a wrapper over these libraries, allowing you to access many of matplotlib's and NumPy's methods with less code. [05]
+* **Matplotlib**: used for data visualization and graphical ploting. Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python. [06]
+* **Seaborn**: built on top of matplotlib with similar functionalities. Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. [07]
 
 ### Analysis of the Iris Dataset
 
