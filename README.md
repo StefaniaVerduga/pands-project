@@ -129,6 +129,50 @@ In order to evaluate the data set it is necessary to create some plots to conden
 
 ![Petal Width by Specie](https://github.com/StefaniaVerduga/pands-project/blob/main/Histograms/Petal-width-class.png)
 
+![Mean per Specie Histogram](https://github.com/StefaniaVerduga/pands-project/blob/main/Histograms/Petal-width-class.png)
+
+#### Code explanation
+#### Overview Histogram
+To create an overview histogram of all the features of the different species, it is needed to use some Python functions.
+```
+data.hist(figsize = (9,6), color = "lightblue")
+plt.savefig('Overview-Hist.png')
+plt.show()
+```
+The first line of code creates an histogram of the data stored in the "data" DataFrame. The 'hist()' function is a Panda method that computes and visualizes the distribution of each column in the DataFrame as a histogram. It is possible to customize the appearance of the histogram by supplying the 'hist()' method additional parameters. 
+In this case, the parameters used were the 'figsize' parameter which sets the size of the plot and the 'color' parameter which sets the color of the bars in the histogram. [17]
+We use the 'plt.savefig()' function to save the figure as a PNG image file on the local machine. [18]
+The last line of the code displays the figure on the screen. [19] [20]
+
+#### Features by Species Histogram
+This program creates a figure and axes objects using Seaborn 'histplot()' function. 
+```
+fig, ax = plt.subplots(figsize=(8,6))
+sns.histplot(data=data, x="sepal_length", hue="class", bins=10)
+plt.ylabel("Frequency")
+plt.title("Histogram of Sepal Length by Class")
+```
+A new figure and axes objects is created using the 'subplots()' function from the 'pyplot' module of Matplotlib. The 'fig' object represents the entire figure, while the 'ax' object represents a single subplot or axes within the figure. [21] 
+The 'Seaborn' 'histplot()' function was used to create the histogram. The 'data' parameter indicates the DataFrame from which the data will be drawn. The 'x' parameter specifies the column in the DataFrame to be plotted on the x-axis, which is "sepal_length" in this case and will vary in the other histograms depending on the features of the Iris. The 'hue' parameter indicates the column that defines different categories or groups, which is "class" in this case and refers to the different Iris species. The 'bins' parameter indicates the number of bins or intervals to use in the histogram. [22]
+The 'plt.ylabel()' and 'plt.title()' functions set the label for the y-axis of the plot, which in this case is "Frequency" and the title respectively. [23] [24]
+
+#### Mean per Species Histogram
+
+```
+grouped_data = data.groupby('class')
+averages = grouped_data.mean()
+
+averages.plot(kind='bar', figsize=(9, 7))
+plt.xlabel("Class")
+plt.ylabel("Average Value")
+plt.title("Average Value of Each Feature for Each Class")
+plt.xticks(rotation=0)
+plt.legend(title="Feature")
+plt.savefig('Mean-per-class-Histogram.png')
+plt.show()
+```
+
+
 ## References
 [01][https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5]
 
@@ -161,3 +205,19 @@ In order to evaluate the data set it is necessary to create some plots to conden
 [15][https://www.geeksforgeeks.org/python-pandas-dataframe-groupby/]
 
 [16][https://stackoverflow.com/questions/49970309/pandas-groupby-with-mean]
+
+[17][https://mode.com/example-gallery/python_histogram/]
+
+[18][https://www.educative.io/answers/what-is-the-matplotlibpyplotsavefig-function-in-python]
+
+[19][https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html]
+
+[20][https://www.kaggle.com/code/agilesifaka/step-by-step-iris-ml-project]
+
+[21][https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html]
+
+[22][https://seaborn.pydata.org/generated/seaborn.histplot.html]
+
+[23][https://www.w3schools.com/python/matplotlib_labels.asp]
+
+[24][https://www.educba.com/seaborn-histogram/]
