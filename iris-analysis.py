@@ -5,7 +5,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import sys
 
 # Loading the dataset
 data = pd.read_csv("iris_dataset.csv")
@@ -68,7 +67,7 @@ plt.savefig('Petal-width.png')
 plt.show()
 
 # Idea's reference: https://www.educba.com/seaborn-histogram/
-#fig, ax = plt.subplots(figsize=(8,6))
+fig, ax = plt.subplots(figsize=(8,6))
 
 sns.histplot(data=data, x="sepal_length", hue="class", bins=10)
 plt.ylabel("Frequency")
@@ -92,6 +91,20 @@ plt.show()
 # Reference: https://www.kaggle.com/code/agilesifaka/step-by-step-iris-ml-project
 data.hist(figsize = (9,6), color = "lightblue")
 plt.savefig('Overview-Hist.png')
+plt.show()
+
+# Histogram of feature's average for each specie
+# https://data-flair.training/blogs/iris-flower-classification/
+grouped_data = data.groupby('class')
+averages = grouped_data.mean()
+
+averages.plot(kind='bar', figsize=(9, 7))
+plt.xlabel("Class")
+plt.ylabel("Average Value")
+plt.title("Average Value of Each Feature for Each Class")
+plt.xticks(rotation=0)
+plt.legend(title="Feature")
+plt.savefig('Averages-per-class-Histogram.png')
 plt.show()
 
 # Scatter plots references:
@@ -126,4 +139,11 @@ plt.title("Sepal Width vs Petal Width", fontsize=12, fontweight= 'bold')
 plt.subplots_adjust(top=0.9)
 plt.savefig('scatplotSWPW.png')
 
+plt.show()
+
+# Pairplot
+# https://www.c-sharpcorner.com/learn/learn-machine-learning-with-python/machine-learning-project-2-iris-dataset
+sns.pairplot(data, hue='class', height=3, diag_kind="kde") 
+plt.savefig('pairplot.png')
+plt.savefig('pairplot.png')
 plt.show()
