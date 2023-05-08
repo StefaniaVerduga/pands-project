@@ -104,7 +104,7 @@ plt.ylabel("Average Value")
 plt.title("Average Value of Each Feature for Each Class")
 plt.xticks(rotation=0)
 plt.legend(title="Feature")
-plt.savefig('Averages-per-class-Histogram.png')
+plt.savefig('Mean-per-class-Histogram.png')
 plt.show()
 
 # Scatter plots references:
