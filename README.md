@@ -25,8 +25,8 @@ The "pands-project" repository contains the Fisher's Iris research and data stud
 The Iris flower data set or Fisher’s Iris data set is one of the most famous multivariate data set used for testing various Machine Learning Algorithms. It was introduced by the British statistician and biologist Ronald Fisher in his 1936 paper "The Use of Multiple Measurements in Taxonomic Problems" as an example of linear discriminant analysis.
 The dataset contains four features (length and width of sepals and petals) of 50 samples of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). These measures were used to create a linear discriminant model to classify the species. [01]
 
-![Iris Species](https://github.com/StefaniaVerduga/pands-project/blob/main/Pictures/iris.png) [02]
-
+Iris Species [02]
+![Iris Species](https://github.com/StefaniaVerduga/pands-project/blob/main/Pictures/iris.png) 
 
 ## Dataset Information
 
@@ -115,6 +115,19 @@ As per the information displayed in the table above, we can see that the specie 
 
 ## Plots
 
+In order to evaluate the data set it is necessary to create some plots to condense the information so that we are able to draw the main conclusions. For this project I have created some histograms, scatterplots and pairplot.
+
+### Histograms
+
+![Overview Histogram](https://github.com/StefaniaVerduga/pands-project/blob/main/Histograms/overview-Histogram.png)
+
+![Sepal Length by Specie](https://github.com/StefaniaVerduga/pands-project/blob/main/Histograms/Sepal-length-class.png)
+
+![Sepal Width by Specie](https://github.com/StefaniaVerduga/pands-project/blob/main/Histograms/Sepal-width-class.png)
+
+![Petal Length by Specie](https://github.com/StefaniaVerduga/pands-project/blob/main/Histograms/Petal-length-class.png)
+
+![Petal Width by Specie](https://github.com/StefaniaVerduga/pands-project/blob/main/Histograms/Petal-width-class.png)
 
 ## References
 [01][https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5]
