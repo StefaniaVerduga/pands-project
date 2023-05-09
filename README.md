@@ -129,7 +129,7 @@ In order to evaluate the data set it is necessary to create some plots to conden
 
 ![Petal Width by Specie](https://github.com/StefaniaVerduga/pands-project/blob/main/Histograms/Petal-width-class.png)
 
-![Mean per Specie Histogram](https://github.com/StefaniaVerduga/pands-project/blob/main/Histograms/Petal-width-class.png)
+![Mean per Specie Histogram](https://github.com/StefaniaVerduga/pands-project/blob/main/Mean-per-class-Histogram.png)
 
 ### Code explanation
 #### Overview Histogram
@@ -179,7 +179,37 @@ The next lines of codes are related the format of the plot of the 'averages' Dat
 
 To set the x-axis and y-axis labels of the plots, it was needed to use the functions 'xlabel()' and 'ylabel()' respectively. The 'xticks()' function sets the rotation of the x-axis tick label to 0 degrees, ensuring that the class names are not rotated. [27]
 
+### Scatter Plots
 
+![ScaterPlotSLSW](https://github.com/StefaniaVerduga/pands-project/blob/main/ScatterPlots/scatplotSLSW.png)
+
+![ScaterPlotPLPW](https://github.com/StefaniaVerduga/pands-project/blob/main/ScatterPlots/scatplotPLPW.png)
+
+### Code explanation
+
+```python
+sns.FacetGrid(data, hue ="class", height = 6) \
+    .map(plt.scatter,'sepal_length','sepal_width') \
+    .add_legend()
+plt.title("Sepal Length vs Sepal Width", fontsize=12, fontweight= 'bold')
+plt.subplots_adjust(top=0.9)
+plt.savefig('scatplotSLSW.png')
+```
+In order to create a scatter plot for this project, I have used the FaceGrid function. FacetGrid function helps in visualizing distribution of one variable as well as the relationship between multiple variables separately within subsets of your dataset using multiple panels.
+The first line of the program creates a FacetGrid object. It takes in the data DataFrame as input and sets the color 'hue' to be determined by the 'class' column. The 'height' parameter specifies the height of each facet in the grid. [28]
+
+In the next line, the 'map()' method is used to specify the type of plot and the variables to be plotted on the x-axis and y-axis within the FacetGrid. The 'scatter()' function is used to create a scatter plot, which displays points on a two-dimensional plane. The 'sepal_length' column will be plotted on the x-axis, and the 'sepal_width' column will be plotted on the y-axis.
+
+A legend was also added to this scatter plot using the 'add_legend()' function, which shows the mapping between the color hue (representing different classes) and the respective class labels.
+
+The next step in this case was adding a title and adjust the subplot layout, specifically setting the top margin of the plot to 0.9. This is useful to make space for the title at the top.
+
+Finally, the 'savefig()' function was used to save this plot into the machine, under the name of 'scatplotSLSW.png' [29] [30]
+### Pairplot
+
+![Pairplot](https://github.com/StefaniaVerduga/pands-project/blob/main/pairplot.png)
+
+### Code explanation
 
 ## References
 [01][https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5]
@@ -235,3 +265,9 @@ To set the x-axis and y-axis labels of the plots, it was needed to use the funct
 [26][https://www.geeksforgeeks.org/pandas-groupby-and-computing-mean/]
 
 [27][https://data-flair.training/blogs/iris-flower-classification/]
+
+[28][https://www.geeksforgeeks.org/python-seaborn-facetgrid-method/]
+
+[29][https://www.kaggle.com/code/sixteenpython/machine-learning-with-iris-dataset]
+
+[30][https://www.geeksforgeeks.org/plotting-graph-for-iris-dataset-using-seaborn-and-matplotlib/?ref=rp]
