@@ -49,7 +49,7 @@ The first step for the analysis is obtain the data set information by downloadin
 
 In order to process all this information we need to import some necessary packages for the project:
 
-```
+```python
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -63,7 +63,7 @@ import seaborn as sns
 ### Analysis of the Iris Dataset
 
 The CSV file previously downloaded, is read into our repository using the Pandas 'read_csv' method and it is stored in a pandas DataFrame object named 'data'. [08]
-```
+```python
 data = pd.read_csv("iris_dataset.csv")
 ```
 
@@ -74,7 +74,7 @@ In Python, the 'open' function is used to open files and performs operations on 
 There are different modes to open a file in Python, in this case the mode used was 'w' which opens a file for writing, creates a new file if it does not exist or truncates the file if it exists. 
 For the next lines of code, the mode used was 'a' which is the append mode, where the data is added at the end of the file. [10]
 
-```
+```python
 print("Overview of the Fisher's Iris Dat Set", file=open("iris-data-summary.txt", "w"))
 print(data.head(), file=open("iris-data-summary.txt", "a"))
 print(data.describe(), file=open("iris-data-summary.txt", "a"))
@@ -85,7 +85,7 @@ print(data.groupby('class').mean(), file=open("iris-data-summary.txt", "a"))
 
 * The "head" method in Pandas is used to display the first few rows of the dataset. It returns the first 5 rows if a number is not specified. [11]
 * The "describe" method returns the description of the data columns. It displays the count, mean, standard deviation, minimum and maximum values for each column in the dataset. [12]
-```
+```python
 Basic descriptive statistics
        sepal_length  sepal_width  petal_length  petal_width
 count    150.000000   150.000000    150.000000   150.000000
@@ -102,7 +102,7 @@ In this table, we can find also the mean value of each feature  or the minimun a
 * The "info" method prints information about the data that we are analizing. The information contains the number of columns, column labels (in this case the features), column data types and the number of cells in each column. All the input attributes (0-3) are in float and the output attribute (4) is in object. [14]
 * The "groupby" method prints out the number of samples on each class in the dataset. This functions is used to split the data into groups based on some criteria. It helps to aggregate data efficiently. [15]
 * The final line of code prints out the mean values categorized by species and uses the "groupby" method to do so, followed by the variable "class" which is the variable name assigned for each iris specie. Doing this, we can get the mean value of the sepal length, sepal width, petal length and petal width for each specie of Iris. [16]
-```
+```python
 Mean values categorized by specie
                  sepal_length  sepal_width  petal_length  petal_width
 class                                                                
@@ -131,10 +131,10 @@ In order to evaluate the data set it is necessary to create some plots to conden
 
 ![Mean per Specie Histogram](https://github.com/StefaniaVerduga/pands-project/blob/main/Histograms/Petal-width-class.png)
 
-#### Code explanation
+### Code explanation
 #### Overview Histogram
 To create an overview histogram of all the features of the different species, it is needed to use some Python functions.
-```
+```python
 data.hist(figsize = (9,6), color = "lightblue")
 plt.savefig('Overview-Hist.png')
 plt.show()
@@ -146,7 +146,7 @@ The last line of the code displays the figure on the screen. [19] [20]
 
 #### Features by Species Histogram
 This program creates a figure and axes objects using Seaborn 'histplot()' function. 
-```
+```python
 fig, ax = plt.subplots(figsize=(8,6))
 sns.histplot(data=data, x="sepal_length", hue="class", bins=10)
 plt.ylabel("Frequency")
@@ -158,7 +158,7 @@ The 'plt.ylabel()' and 'plt.title()' functions set the label for the y-axis of t
 
 #### Mean per Species Histogram
 
-```
+```python
 grouped_data = data.groupby('class')
 averages = grouped_data.mean()
 
@@ -171,6 +171,14 @@ plt.legend(title="Feature")
 plt.savefig('Mean-per-class-Histogram.png')
 plt.show()
 ```
+For this histogram, I wanted to show the main values of each feature per specie. In order to do so, I used the the function 'groupby()' which is used for grouping the data according to the categories and applying a function to the categories. It is useful to aggregate data efficiently. In this case I grouped the data by "Class" which refers to the different Iris species. [25]
+
+Once the data is grouped by species, it is needed to calculate the mean of each feature, so in order to do so, I used the method 'mean()' The 'mean()' method is applied to the 'grouped_data' object, resulting in a new DataFrame, averages, that contains the average values for each feature in each class. [26]
+
+The next lines of codes are related the format of the plot of the 'averages' DataFrame using the 'plot()' method, already used for the previous histograms. I set several parameters as 'kind' to specify that a bar plot should be created and the 'figsize' to set the size of the plot.
+
+To set the x-axis and y-axis labels of the plots, it was needed to use the functions 'xlabel()' and 'ylabel()' respectively. The 'xticks()' function sets the rotation of the x-axis tick label to 0 degrees, ensuring that the class names are not rotated. [27]
+
 
 
 ## References
@@ -221,3 +229,9 @@ plt.show()
 [23][https://www.w3schools.com/python/matplotlib_labels.asp]
 
 [24][https://www.educba.com/seaborn-histogram/]
+
+[25][https://www.geeksforgeeks.org/python-pandas-dataframe-groupby/]
+
+[26][https://www.geeksforgeeks.org/pandas-groupby-and-computing-mean/]
+
+[27][https://data-flair.training/blogs/iris-flower-classification/]
