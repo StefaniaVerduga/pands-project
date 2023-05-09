@@ -85,9 +85,8 @@ print(data.groupby('class').mean(), file=open("iris-data-summary.txt", "a"))
 
 * The "head" method in Pandas is used to display the first few rows of the dataset. It returns the first 5 rows if a number is not specified. [11]
 * The "describe" method returns the description of the data columns. It displays the count, mean, standard deviation, minimum and maximum values for each column in the dataset. [12]
-<details>
-<summary>Basic descriptive statistics - click me to expand</summary>
-<p>
+
+Basic descriptive statistics
 
        sepal_length  sepal_width  petal_length  petal_width
 count    150.000000   150.000000    150.000000   150.000000
@@ -98,25 +97,20 @@ min        4.300000     2.000000      1.000000     0.100000
 50%        5.800000     3.000000      4.350000     1.300000
 75%        6.400000     3.300000      5.100000     1.800000
 max        7.900000     4.400000      6.900000     2.500000
-<p>
-</details>
 
 The variable "counts" represents the number of non-missing values for each feature. In this case, there are 150 values for each feature, which means that there are not missing values in the dataset. [13]
 In this table, we can find also the mean value of each feature  or the minimun and maximum value. For example, the minimum value of the sepal length is 4.3 cm and the maximum value is 7.9 cm being one of the highest values within all categories for the different Iris species.
 * The "info" method prints information about the data that we are analizing. The information contains the number of columns, column labels (in this case the features), column data types and the number of cells in each column. All the input attributes (0-3) are in float and the output attribute (4) is in object. [14]
 * The "groupby" method prints out the number of samples on each class in the dataset. This functions is used to split the data into groups based on some criteria. It helps to aggregate data efficiently. [15]
 * The final line of code prints out the mean values categorized by species and uses the "groupby" method to do so, followed by the variable "class" which is the variable name assigned for each iris specie. Doing this, we can get the mean value of the sepal length, sepal width, petal length and petal width for each specie of Iris. [16]
-<details>
-       <summary>Mean values categorized by specie - click me to expand</summary>
-       <p>
+
+Mean values categorized by specie
 
                  sepal_length  sepal_width  petal_length  petal_width
 class                                                                
 Iris-setosa             5.006        3.418         1.464        0.244
 Iris-versicolor         5.936        2.770         4.260        1.326
 Iris-virginica          6.588        2.974         5.552        2.026
-<p>
-</details>
 
 The information provided shows the mean values of sepal length, sepal width, petal length, and petal width for each category of iris species: Iris setosa, Iris versicolor, and Iris virginica.
 As per the information displayed in the table above, we can see that the specie with the highest values for almost all the categories is the Iris Virginica, and on the contrary the Iris Setosa would be the specie with the smallest values.
