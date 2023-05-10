@@ -11,16 +11,17 @@ The "pands-project" repository contains the Fisher's Iris research and data stud
 1. [Description](#Description)
 2. [Dataset Information](#Dataset-Information)
 3. [Dataset Code and Analysis](#Dataset-Code-and-Analysis)
-- [Loading the dataset](#Loading-the-dataset)
-- [Analysis of the Iris Dataset](#Analysis-of-the-Iris-Dataset)
+- 3.1 [Loading the dataset](#Loading-the-dataset)
+- 3.2 [Analysis of the Iris Dataset](#Analysis-of-the-Iris-Dataset)
 4. [Plots](#Plots)
-- [Histograms](#Histograms)
-- [Scatterplots](#Scatterplots)
-- [Pairplot](#Pairplot)
+- 4.1 [Histograms](#Histograms)
+- 4.2 [Scatterplots](#Scatterplots)
+- 4.3 [Pairplot](#Pairplot)
 5. [Conclusion](#Conclusion)
-6. [References](#References)
+6. [Technology used for this project](#Technology-used-for-this-project)
+7. [References](#References)
 
-## Description
+## 1. Description
 
 The Iris flower data set or Fisher’s Iris data set is one of the most famous multivariate data set used for testing various Machine Learning Algorithms. It was introduced by the British statistician and biologist Ronald Fisher in his 1936 paper "The Use of Multiple Measurements in Taxonomic Problems" as an example of linear discriminant analysis.
 The dataset contains four features (length and width of sepals and petals) of 50 samples of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). These measures were used to create a linear discriminant model to classify the species. [01]
@@ -28,7 +29,7 @@ The dataset contains four features (length and width of sepals and petals) of 50
 Iris Species [02]
 ![Iris Species](https://github.com/StefaniaVerduga/pands-project/blob/main/Pictures/iris.png) 
 
-## Dataset Information
+## 2. Dataset Information
 
 The Iris Dataset consists of 50 samples from each of three species of Iris flowers: Iris setosa, Iris virginica, and Iris versicolor. 
 Attribute information:
@@ -41,9 +42,9 @@ Attribute information:
 
 These features are used to classify the flowers into their respective species. The dataset is often used for machine learning tasks such as classification and clustering. [03]
 
-## Dataset Code and Analysis
+## 3. Dataset Code and Analysis
 
-### Loading the dataset
+### 3.1 Loading the dataset
 
 The first step for the analysis is obtain the data set information by downloading it from: [https://archive.ics.uci.edu/ml/datasets/iris] and convert it in comma-separated values (csv). This data source can be founded in the repository under the name of [iris_dataset.csv](https://github.com/StefaniaVerduga/pands-project/blob/main/iris_dataset.csv)
 
@@ -60,7 +61,7 @@ import seaborn as sns
 * **Matplotlib**: used for data visualization and graphical ploting. Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python. [06]
 * **Seaborn**: built on top of matplotlib with similar functionalities. Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. [07]
 
-### Analysis of the Iris Dataset
+### 3.2 Analysis of the Iris Dataset
 
 The CSV file previously downloaded, is read into our repository using the Pandas 'read_csv' method and it is stored in a pandas DataFrame object named 'data'. [08]
 ```python
@@ -88,6 +89,7 @@ print(data.groupby('class').mean(), file=open("iris-data-summary.txt", "a"))
 
 ```
 Basic descriptive statistics
+
        sepal_length  sepal_width  petal_length  petal_width
 count    150.000000   150.000000    150.000000   150.000000
 mean       5.843333     3.054000      3.758667     1.198667
@@ -107,6 +109,7 @@ In this table, we can find also the mean value of each feature  or the minimun a
 
 ```
 Mean values categorized by specie
+
                  sepal_length  sepal_width  petal_length  petal_width
 class                                                                
 Iris-setosa             5.006        3.418         1.464        0.244
@@ -117,11 +120,11 @@ Iris-virginica          6.588        2.974         5.552        2.026
 The information provided shows the mean values of sepal length, sepal width, petal length, and petal width for each category of iris species: Iris setosa, Iris versicolor, and Iris virginica.
 As per the information displayed in the table above, we can see that the specie with the highest values for almost all the categories is the Iris Virginica, and on the contrary the Iris Setosa would be the specie with the smallest values.
 
-## Plots
+## 4. Plots
 
 In order to evaluate the data set it is necessary to create some plots to condense the information so that we are able to draw the main conclusions. For this project I have created some histograms, scatterplots and pairplot.
 
-### Histograms
+### 4.1 Histograms
 
 ![Overview Histogram](https://github.com/StefaniaVerduga/pands-project/blob/main/Histograms/overview-Histogram.png)
 
@@ -183,7 +186,10 @@ The next lines of codes are related the format of the plot of the 'averages' Dat
 
 To set the x-axis and y-axis labels of the plots, it was needed to use the functions 'xlabel()' and 'ylabel()' respectively. The 'xticks()' function sets the rotation of the x-axis tick label to 0 degrees, ensuring that the class names are not rotated. [27]
 
-### Scatter Plots
+In this histogram we can see that the average petal length for an Iris Setosa is much smaller than the other two classes, and it happens the same with the petal width and the sepal length. The Iris Virginica has the largest average sepal length, petal width and petal length which is almost four times greater than the petal length of the Iris Setosa. 
+This behavior is not the same in the case of petal width, since in this case it is the Iris Setosa the specie with the largest petal width.
+
+### 4.2 Scatter Plots
 
 ![ScaterPlotSLSW](https://github.com/StefaniaVerduga/pands-project/blob/main/ScatterPlots/scatplotSLSW.png)
 
@@ -209,13 +215,43 @@ A legend was also added to this scatter plot using the 'add_legend()' function, 
 The next step in this case was adding a title and adjust the subplot layout, specifically setting the top margin of the plot to 0.9. This is useful to make space for the title at the top.
 
 Finally, the 'savefig()' function was used to save this plot into the machine, under the name of 'scatplotSLSW.png' [29] [30]
-### Pairplot
+
+From the scatter plot we can see that there is no correlation between the width and length of the sepal in any of the 3 species. It is clearly seen that Iris Setosa has a greater sepal width compared to Iris Virginica and Iris Versicolor. On the contrary, the latter two have a greater sepal length compared to Iris Setosa.
+
+On the other hand, we can see how in the scatter plot of petal length and petal width, there is a correlation in the case of the three Iris species. It can be seen that the longer the petal length, the wider the petal width in all of the Iris.
+
+### 4.3 Pairplot
 
 ![Pairplot](https://github.com/StefaniaVerduga/pands-project/blob/main/pairplot.png)
 
 ### Code explanation
 
-## References
+```python
+sns.pairplot(data, hue='class', height=3, diag_kind="kde") 
+plt.savefig('pairplot.png')
+plt.show()
+```
+This program uses the Seaborn library to create a pairplot.
+The first line of code creates a pairplot using the 'pairplot()' function from Seaborn. The pairplot function creates a grid of Axes such that each variable in data will by shared in the y-axis across a single row and in the x-axis across a single column. Within the function we need to set the 'data' parameter which specifies the dataframe to be plotted. The 'hue' parameter indicates the column in the DataFrame that determines the color of the data points, which is set to 'class' in this case. The 'height' parameter is used to set the height of each subplot in the grid. And the 'diag_kind' parameter specifies the type of plot to be used on the diagonal subplots, which is "kde" (kernel density estimate) in this case, displaying density curves. [31]
+
+Finally, the pairplot is saved in the machine and displayed, using the 'savefig()' and the 'plt.show()' function respectively.
+
+## 5. Conclusion
+
+This project has been a great challenge, as it is the first data analysis project within the HDip in Computing in Data Analytics course. However, it has been very useful as it has served as a guide in the process of developing a data analysis project. 
+In this project I wanted to show the basic characteristics of the different species of the Iris flower through different tables and graphs. It has been especially striking the fact that with only a small sample of 150 observations, so much information can be obtained in this regard. 
+In this project, the main points to highlight are the following: 
+* From the summary statistics of the sepal and petal measurements by class type it would appear that the differences between the Iris Setosa and the other two species is more pronounced that any other differences between the three classes. 
+* Iris setosa is the smallest species of the three, except when it comes to petal width, which is larger in iris setosa, although this difference is not substantial.
+* Iris Setosa is clearly different in these features compared to the other two species. The plots also show how it is not so easy to separate the other two classes from each other as there is a bit of overlap.
+
+## 6. Technology used for this project
+
+* Visual Studio Code.
+* Anaconda
+* Python
+
+## 7. References
 [01][https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5]
 
 [02][https://www.codecademy.com/courses/machine-learning/lessons/machine-learning-clustering/exercises/iris-dataset]
@@ -275,3 +311,5 @@ Finally, the 'savefig()' function was used to save this plot into the machine, u
 [29][https://www.kaggle.com/code/sixteenpython/machine-learning-with-iris-dataset]
 
 [30][https://www.geeksforgeeks.org/plotting-graph-for-iris-dataset-using-seaborn-and-matplotlib/?ref=rp]
+
+[31][https://seaborn.pydata.org/generated/seaborn.pairplot.html]
