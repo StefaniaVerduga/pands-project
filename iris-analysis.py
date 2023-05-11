@@ -35,7 +35,7 @@ plt.hist(x, bins = 10, color = "lightblue")
 plt.title("Sepal Length in cm")
 plt.xlabel("Sepal_Length_cm")
 plt.ylabel("Frequency")
-plt.savefig('Sepal-length.png')
+plt.savefig("Sepal-length.png")
 
 # Histogram for sepal width
 plt.figure(figsize = (8, 6))
@@ -44,7 +44,7 @@ plt.hist(x, bins = 10, color = "lightblue")
 plt.title("Sepal Width in cm")
 plt.xlabel("Sepal_Width_cm")
 plt.ylabel("Frequency")
-plt.savefig('Sepal-width.png')
+plt.savefig("Sepal-width.png")
 
 # Histogram for petal length
 plt.figure(figsize = (8, 6))
@@ -53,7 +53,7 @@ plt.hist(x, bins = 10, color = "lightblue")
 plt.title("Petal Length in cm")
 plt.xlabel("Petal_Length_cm")
 plt.ylabel("Frequency")
-plt.savefig('Petal-length.png')
+plt.savefig("Petal-length.png")
 
 # Histogram for petal width
 plt.figure(figsize = (8, 6))
@@ -62,7 +62,7 @@ plt.hist(x, bins = 10, color = "lightblue")
 plt.title("Petal Width in cm")
 plt.xlabel("Petal_Width_cm")
 plt.ylabel("Frequency")
-plt.savefig('Petal-width.png')
+plt.savefig("Petal-width.png")
 
 plt.show()
 
@@ -90,21 +90,21 @@ plt.show()
 # Histrograms overview
 # Reference: https://www.kaggle.com/code/agilesifaka/step-by-step-iris-ml-project
 data.hist(figsize = (9,6), color = "lightblue")
-plt.savefig('Overview-Hist.png')
+plt.savefig("Overview-Hist.png")
 plt.show()
 
 # Histogram of feature's average for each specie
 # https://data-flair.training/blogs/iris-flower-classification/
-grouped_data = data.groupby('class')
+grouped_data = data.groupby("class")
 averages = grouped_data.mean()
 
-averages.plot(kind='bar', figsize=(9, 7))
+averages.plot(kind="bar", figsize=(9, 7))
 plt.xlabel("Class")
 plt.ylabel("Average Value")
 plt.title("Average Value of Each Feature for Each Class")
 plt.xticks(rotation=0)
 plt.legend(title="Feature")
-plt.savefig('Mean-per-class-Histogram.png')
+plt.savefig("Mean-per-class-Histogram.png")
 plt.show()
 
 # Scatter plots references:
@@ -112,38 +112,37 @@ plt.show()
 # https://www.geeksforgeeks.org/plotting-graph-for-iris-dataset-using-seaborn-and-matplotlib/?ref=rp
 
 sns.FacetGrid(data, hue ="class", height = 6) \
-    .map(plt.scatter,'sepal_length','sepal_width') \
+    .map(plt.scatter,"sepal_length","sepal_width") \
     .add_legend()
-plt.title("Sepal Length vs Sepal Width", fontsize=12, fontweight= 'bold')
+plt.title("Sepal Length vs Sepal Width", fontsize=12, fontweight= "bold")
 plt.subplots_adjust(top=0.9)
-plt.savefig('scatplotSLSW.png')
-
-ns.FacetGrid(data, hue ="class", height = 6) \
-    .map(plt.scatter,'petal_length','petal_width') \
-    .add_legend()
-plt.title("Petal Length vs Petal Width", fontsize=12, fontweight= 'bold')
-plt.subplots_adjust(top=0.9)
-plt.savefig('scatplotPLPW.png')
+plt.savefig("scatplotSLSW.png")
 
 sns.FacetGrid(data, hue ="class", height = 6) \
-    .map(plt.scatter,'sepal_length','petal_length') \
+    .map(plt.scatter,"petal_length","petal_width") \
     .add_legend()
-plt.title("Sepal Length vs Petal Length", fontsize=12, fontweight= 'bold')
+plt.title("Petal Length vs Petal Width", fontsize=12, fontweight= "bold")
 plt.subplots_adjust(top=0.9)
-plt.savefig('scatplotSLPL.png')
+plt.savefig("scatplotPLPW.png")
 
 sns.FacetGrid(data, hue ="class", height = 6) \
-    .map(plt.scatter,'sepal_width','petal_width') \
+    .map(plt.scatter,"sepal_length","petal_length") \
     .add_legend()
-plt.title("Sepal Width vs Petal Width", fontsize=12, fontweight= 'bold')
+plt.title("Sepal Length vs Petal Length", fontsize=12, fontweight= "bold")
 plt.subplots_adjust(top=0.9)
-plt.savefig('scatplotSWPW.png')
+plt.savefig("scatplotSLPL.png")
+
+sns.FacetGrid(data, hue ="class", height = 6) \
+    .map(plt.scatter,"sepal_width','petal_width") \
+    .add_legend()
+plt.title("Sepal Width vs Petal Width", fontsize=12, fontweight= "bold")
+plt.subplots_adjust(top=0.9)
+plt.savefig("scatplotSWPW.png")
 
 plt.show()
 
 # Pairplot
 # https://www.c-sharpcorner.com/learn/learn-machine-learning-with-python/machine-learning-project-2-iris-dataset
-sns.pairplot(data, hue='class', height=3, diag_kind="kde") 
-plt.savefig('pairplot.png')
-plt.savefig('pairplot.png')
+sns.pairplot(data, hue="class", height=3, diag_kind="kde") 
+plt.savefig("pairplot.png")
 plt.show()
