@@ -46,7 +46,7 @@ These features are used to classify the flowers into their respective species. T
 
 ### 3.1 Loading the dataset
 
-The first step for the analysis is obtain the data set information by downloading it from: [https://archive.ics.uci.edu/ml/datasets/iris] and convert it in comma-separated values (csv). This data source can be founded in the repository under the name of [iris_dataset.csv](https://github.com/StefaniaVerduga/pands-project/blob/main/iris_dataset.csv)
+The first step for the analysis is to obtain the data set information. This can be found it in the official site: [UCI Machine Learning](https://archive.ics.uci.edu/ml/datasets/iris) or in other sites on internet. In my case, I downloaded from [datahub.io](https://datahub.io/machine-learning/iris) as the information was ready to be used and no further changes on the table were needed. This data source can be founded in the repository under the name of [iris_dataset.csv](https://github.com/StefaniaVerduga/pands-project/blob/main/iris_dataset.csv)
 
 In order to process all this information we need to import some necessary packages for the project:
 
